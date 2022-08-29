@@ -1,0 +1,22 @@
+---
+- name: Preconfigure system
+  hosts: default
+  become: true
+
+  tasks:
+  - name: Install EPEL
+    ansible.builtin.yum:
+      name: epel-release
+      state: latest
+  - name: Install vim and nagios
+    ansible.builtin.yum:
+      name: "{{ packages }}"
+      state: installed
+    vars:
+      packages:
+      - vim
+      - nagios-4.4.6
+  - name: Deploy tpl file in linux root
+    ansible.builtin.template:
+      src: ./ansible/hello.j2
+      dest: /hello.txt

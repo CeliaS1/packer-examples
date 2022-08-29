@@ -1,0 +1,2 @@
+user     = "accountOtherThanDefault"
+password = "passwd"

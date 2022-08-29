@@ -1,0 +1,2 @@
+Launch build : 
+packer build -var 'message="my custom message"' -on-error=ask .
